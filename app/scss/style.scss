@@ -1,0 +1,47 @@
+@import 'libs';
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'global';
+
+@import './animations';
+
+// * ===== Other components
+@import './components/breadcrumbs';
+@import './components/swiper-options';
+@import './components/custom-checkbox';
+@import './components/custom-select';
+@import './components/menu';
+@import './components/socials';
+@import './components/form-submit';
+@import './components/accordion';
+@import './components/menu-mobile';
+@import './components/popups';
+
+// * ===== Card Components
+@import './components/card-testimonials';
+
+// * ===== Section Components
+@import './components/footer';
+@import './components/header';
+@import './components/hero';
+@import './components/about-section';
+@import './components/advantages';
+@import './components/benefits';
+@import './components/activity';
+@import './components/request';
+@import './components/team';
+@import './components/cases';
+@import './components/blog';
+@import './components/reviews';
+@import './components/our-reviews';
+@import './components/document-order';
+@import './components/document-order-banner';
+@import './components/work-stages';
+@import './components/contact';
+@import './components/blog-article';
+@import './components/contacts';
+@import './components/lawyer';
+@import './components/family';
+@import './components/family-solution';

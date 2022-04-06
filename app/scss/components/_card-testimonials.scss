@@ -1,0 +1,98 @@
+.testimonials-card {
+  max-width: 1150px;
+  border: 1px solid #b7cfe4;
+  border-radius: 20px;
+  padding: 30px 45px;
+
+  @include adaptive-value('padding-top', 30, 20, 1);
+  @include adaptive-value('padding-bottom', 30, 20, 1);
+  @include adaptive-value('padding-left', 45, 20, 1);
+  @include adaptive-value('padding-right', 45, 20, 1);
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 13px;
+  }
+
+  &__author {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+  }
+
+  .stars {
+    &__item {
+      &:not(:last-child) {
+        margin-right: 1px;
+      }
+      fill: var(--color-accent);
+
+      &--unactive {
+        fill: #c8d1da;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__rating {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    gap: 40px;
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: repeat(2, auto);
+      row-gap: 10px;
+    }
+    @include breakpointsMaxW($bp-768) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__date {
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-accent-dark);
+  }
+
+  &__name {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  &__body {
+    margin-bottom: 22px;
+  }
+
+  .feedback {
+    padding: 30px;
+    background-color: #eff7ff;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #324759;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    &__text {
+      color: var(--color-black);
+      font-weight: 300;
+    }
+  }
+}

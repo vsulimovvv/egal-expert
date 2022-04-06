@@ -1,0 +1,170 @@
+.header {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 20px 0;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+
+    justify-content: start;
+  }
+
+  &__tools {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    display: none;
+
+    @include breakpointsMaxW($bp-991) {
+      display: flex;
+      margin-right: auto;
+    }
+    @include breakpointsMaxW($bp-576) {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: 150ms ease;
+
+    @include breakpointsMaxW($bp-991) {
+      width: calc(27px + (38 - 27) * ((100vw - 375px) / (1330 - 375)));
+      height: calc(27px + (38 - 27) * ((100vw - 375px) / (1330 - 375)));
+    }
+
+    &::after {
+      @include elDef();
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include breakpointsMaxW($bp-991) {
+        width: calc(15px + (20 - 15) * ((100vw - 375px) / (1330 - 375)));
+        height: calc(15px + (20 - 15) * ((100vw - 375px) / (1330 - 375)));
+      }
+    }
+
+    &--whatsapp {
+      background-color: var(--color-green);
+
+      &:hover {
+        background-color: var(--color-green-light);
+      }
+
+      &:active {
+        background-color: var(--color-green-dark);
+      }
+
+      &::after {
+        @include backgroundImage(url('../images/icons/whatsapp.svg'), contain);
+      }
+    }
+    &--telegram {
+      background-color: var(--color-blue);
+
+      &:hover {
+        background-color: var(--color-blue-light);
+      }
+
+      &:active {
+        background-color: var(--color-blue-dark);
+      }
+
+      &::after {
+        @include backgroundImage(url('../images/icons/telegram.svg'), contain);
+      }
+    }
+  }
+  &__toggle {
+    display: none;
+
+    @include breakpointsMaxW($bp-991) {
+      background-color: var(--color-accent);
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 350ms ease-in;
+      border-radius: 50%;
+      position: absolute;
+      right: 20px;
+      top: 70px;
+
+      @include adaptive-value('width', 70, 50, 1);
+      @include adaptive-value('height', 70, 50, 1);
+
+      &-line {
+        border-radius: 3px;
+        height: 2px;
+        background-color: var(--color-white);
+        position: relative;
+        transition: 150ms ease-in;
+        @include adaptive-value('width', 30, 22, 1);
+
+        &::after,
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: inherit;
+          transition: 450ms ease-in;
+          border-radius: 3px;
+        }
+
+        &::after {
+          top: -7px;
+        }
+
+        &::before {
+          bottom: -7px;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__location {
+    width: 120px;
+    position: relative;
+
+    @include adaptive-value('margin-right', 130, 25, 1);
+    @include adaptive-value('width', 120, 80, 1);
+
+    @include breakpointsMaxW($bp-container) {
+      margin-right: calc(30px + (130 - 30) * ((100vw - 991px) / (1330 - 991)));
+    }
+    @include breakpointsMaxW($bp-991) {
+      margin-right: auto;
+    }
+  }
+
+  &__location-btn {
+    color: var(--color-blue);
+    position: relative;
+    padding-left: 30px;
+
+    &::after {
+      @include elDef();
+      width: 24px;
+      height: 24px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include maskImage(url('../images/icons/location.svg'), contain);
+      background-color: var(--color-blue);
+    }
+  }
+}

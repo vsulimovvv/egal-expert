@@ -1,0 +1,59 @@
+.about-section {
+  @include adaptive-value('padding-top', 90, 45, 1);
+  @include adaptive-value('padding-bottom', 90, 45, 1);
+  background-color: var(--color-white);
+
+  &__title {
+    @include adaptive-value('margin-bottom', 25, 20, 1);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    font-weight: 300;
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      gap: calc(20px + (40 - 20) * ((100vw - 320px) / (991 - 320)));
+    }
+  }
+
+  &__right {
+    position: relative;
+    padding-left: 210px;
+
+    @include breakpointsMaxW($bp-container) {
+      padding-left: calc(
+        190px + (210 - 190) * ((100vw - 991px) / (1330 - 991))
+      );
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      padding-left: 0;
+      padding-bottom: 240px;
+      padding-bottom: calc(
+        155px + (240 - 155) * ((100vw - 320px) / (991 - 320))
+      );
+    }
+
+    &::after {
+      @include elDef();
+      top: 50%;
+      transform: translateY(-50%);
+      left: 40px;
+      @include maskImage(url('../images/icons/decor-logo.svg'), contain);
+      background-color: var(--color-dark);
+
+      @include adaptive-value('width', 135, 63, 1);
+      @include adaptive-value('height', 175, 80, 1);
+
+      @include breakpointsMaxW($bp-991) {
+        top: initial;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

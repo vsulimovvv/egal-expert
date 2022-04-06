@@ -1,0 +1,58 @@
+.work-stages {
+  @include adaptive-value('padding-top', 80, 40, 1);
+  @include adaptive-value('padding-bottom', 130, 70, 1);
+
+
+  &__text {
+    p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--color-accent-dark);
+  }
+
+  &__text {
+    &:not(:last-child) {
+      @include adaptive-value('margin-bottom', 45, 20, 1);
+    }
+  }
+
+  &__list {
+    counter-reset: item;
+    margin-bottom: 35px;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 20px;
+    color: var(--color-black);
+
+    &::after {
+      position: absolute;
+      counter-increment: item;
+      content: counter(item) '.';
+      top: 0;
+      left: 0;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.4;
+      color: var(--color-black);
+
+      @include breakpointsMaxW($bp-768) {
+        font-size: 15px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}

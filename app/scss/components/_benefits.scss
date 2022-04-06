@@ -1,0 +1,43 @@
+.benefits {
+  @include adaptive-value('padding-top', 100, 50, 1);
+  @include adaptive-value('padding-bottom', 75, 40, 1);
+
+  &__list {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 60px 120px;
+    position: relative;
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    &::after {
+      @include elDef();
+      width: 100%;
+      height: 220px;
+      @include backgroundImage(url('../images/icons/aim.svg'), contain);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include breakpointsMaxW($bp-991) {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    width: 100%;
+    
+    @include breakpointsMaxW($bp-991) {
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    @include cardTitle();
+    margin-bottom: 10px;
+  }
+}

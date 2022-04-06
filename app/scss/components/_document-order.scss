@@ -1,0 +1,65 @@
+.document-order {
+  @include adaptive-value('padding-top', 85, 50, 1);
+  @include adaptive-value('padding-bottom', 75, 40, 1);
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @include adaptive-value('margin-bottom', 65, 40, 1);
+  }
+
+  &__heading {
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  &__lists {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    margin-bottom: 33px;
+
+    @include breakpointsMaxW($bp-768) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    background-color: var(--color-white);
+    padding: 22px 19px 22px 55px;
+    border-radius: 20px;
+    position: relative;
+    @include breakpointsMaxW($bp-768) {
+      padding: 15px 15px 15px 35px;
+    }
+
+    &::after {
+      @include elDef();
+      width: 5px;
+      height: 5px;
+      background-color: var(--color-dark);
+      top: 50%;
+      transform: translateY(-50%);
+      left: 35px;
+      border-radius: 50%;
+      @include breakpointsMaxW($bp-768) {
+        left: 15px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.1;
+    color: var(--color-accent-dark);
+  }
+}
