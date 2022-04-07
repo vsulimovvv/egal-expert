@@ -116,15 +116,6 @@ body {
         display: none;
       }
     }
-
-    &:hover {
-      // &::after {
-      //   background-color: rgba(183, 207, 228, 0.8);
-      // }
-      // &::before {
-      //   background-color: rgba(183, 207, 228, 0.3);
-      // }
-    }
   }
 
   &:hover {
@@ -204,16 +195,6 @@ body {
       transform: translateY(3px);
     }
   }
-
-  &:hover {
-  }
-
-  &:active {
-    // transform: scale(0.98);
-  }
-
-  &--dark {
-  }
 }
 
 // * Карта
@@ -288,6 +269,7 @@ body {
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.015em;
+  transition: 150ms ease;
 
   &::after {
     @include elDef();
@@ -297,6 +279,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--color-white);
+    transition: 150ms ease;
   }
 
   &--whatsapp {
@@ -324,6 +307,21 @@ body {
     }
     &:active {
       background-color: var(--color-blue-dark);
+    }
+  }
+  &--viber {
+    background-color: #7c509a;
+
+    &::after {
+      @include maskImage(url('../images/icons/viber.svg'), contain);
+    }
+
+    &:hover {
+      background-color: lighten(#7c509a, 10%);
+    }
+
+    &:active {
+      background-color: darken(#7c509a, 10%);
     }
   }
 }

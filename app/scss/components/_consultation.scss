@@ -1,0 +1,148 @@
+.consultation {
+  position: relative;
+  @include adaptive-value('margin-bottom', 100, 50, 1);
+
+  &::before {
+    @include elDef();
+    width: 170px;
+    height: 220px;
+    @include maskImage(url('../images/icons/decor-logo.svg'), contain);
+    background-color: var(--color-white);
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    @include breakpointsMaxW(1640px) {
+      left: 20px;
+      width: 100px;
+      height: 150px;
+    }
+    @include breakpointsMaxW($bp-container) {
+      display: none;
+    }
+  }
+
+  @include breakpointsMaxW($bp-768) {
+    .container {
+      padding: 0;
+    }
+  }
+
+  &__wrapper {
+    background-color: var(--color-white);
+    border-radius: 45px;
+    height: 770px;
+    @include breakpointsMaxW(1640px) {
+      margin-left: 130px;
+    }
+    @include breakpointsMaxW($bp-container) {
+      margin-left: 0;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      height: 600px;
+      border-radius: 45px 45px 0 0;
+    }
+    @include breakpointsMaxW($bp-768) {
+      height: 450px;
+      border-radius: 0;
+    }
+  }
+
+  &__select {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__offer {
+    max-width: 520px;
+    width: 100%;
+
+    padding: 80px 65px;
+    height: 100%;
+
+    @include breakpointsMaxW($bp-991) {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      padding: 40px 10px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 1;
+    @include adaptive-value('font-size', 48, 25, 1);
+    @include breakpointsMaxW($bp-768) {
+      max-width: 250px;
+    }
+  }
+
+  &__address {
+    margin-top: 50px;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--color-black);
+    margin-bottom: 10px;
+  }
+
+  &__tel {
+    font-family: $Geometria;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.015em;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  &__messengers {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 15px;
+    @include breakpointsMaxW($bp-991) {
+      justify-content: center;
+    }
+  }
+
+  &__schedule-row {
+    display: flex;
+    gap: 8px;
+    @include breakpointsMaxW($bp-991) {
+      justify-content: center;
+    }
+  }
+
+  &__map {
+    position: absolute;
+    width: 58%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    @include breakpointsMaxW(1640px) {
+      width: 50%;
+    }
+
+    @include breakpointsMaxW($bp-container) {
+      width: 50%;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      position: static;
+      height: 600px;
+      width: 100%;
+    }
+    @include breakpointsMaxW($bp-768) {
+      height: 450px;
+    }
+  }
+}

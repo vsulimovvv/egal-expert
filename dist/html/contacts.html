@@ -4,7 +4,7 @@
     @include('./components/base/_meta.html')
     @include('./components/base/_links.html')
 
-    <title>NKMZ</title>
+    <title>Legal Expert</title>
   </head>
 
   <body>
@@ -14,7 +14,10 @@
     <div class="site-wrapper">
       @include('./components/_header.html')
 
-      <main class="main">@include('./components/_contacts.html')</main>
+      <main class="main">
+        @include('./components/_contacts.html')
+        @include('./components/_consultation.html')
+      </main>
       @include('./components/_footer.html')
     </div>
 

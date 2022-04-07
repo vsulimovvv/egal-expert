@@ -25,6 +25,11 @@
     align-items: center;
     justify-content: center;
   }
+  &--no-btn {
+    .team__slider {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .team-card {

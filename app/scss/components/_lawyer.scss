@@ -245,6 +245,13 @@
       @include circle();
       left: 10px;
     }
+    &--no-circle {
+      padding-left: 0;
+      
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 

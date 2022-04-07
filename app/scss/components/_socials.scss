@@ -5,14 +5,21 @@
     gap: 5px;
   }
 
-
   &__link {
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     position: relative;
-    transition: 150ms ease;
+    transition: 250ms ease;
+
+    &:hover{
+      transform: translateY(-2px);
+    }
+
+    &:active{
+      transform: translateY(0);
+    }
 
     &::after {
       @include elDef();
@@ -67,6 +74,21 @@
 
       &::after {
         @include backgroundImage(url('../images/icons/instagram.svg'), contain);
+      }
+    }
+
+    &--youtube {
+      background-color: #f40000;
+
+      &:hover {
+        background-color: lighten(#f40000, 15%);
+      }
+      &:active {
+        background-color: darken(#f40000, 5%);
+      }
+
+      &::after {
+        @include backgroundImage(url('../images/icons/youtube.svg'), contain);
       }
     }
   }
