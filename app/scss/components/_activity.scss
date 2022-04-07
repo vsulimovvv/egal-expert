@@ -43,55 +43,6 @@
     &:not(:last-child) {
       margin-bottom: 50px;
     }
-
-    &-mobile {
-      display: none;
-
-      @include breakpointsMaxW($bp-991) {
-        display: block;
-        color: var(--color-accent);
-
-        .activity-box {
-          background-color: var(--color-white);
-          border-radius: 20px;
-          color: var(--color-accent);
-          &:not(:last-child) {
-            margin-bottom: 20px;
-            @include breakpointsMaxW($bp-768) {
-              margin-bottom: 10px;
-            }
-          }
-
-          &__name {
-            padding: 27px 30px;
-            width: 100%;
-            display: block;
-            text-align-last: left;
-            color: var(--color-accent);
-
-            &.accordion__control {
-              &::after {
-                right: 23px;
-                @include breakpointsMaxW($bp-768) {
-                  width: 15px;
-                  height: 15px;
-                }
-              }
-            }
-          }
-
-          &__item {
-            padding-left: 30px;
-            color: var(--color-dark);
-            &:not(:last-child) {
-              margin-bottom: 10px;
-            }
-            &::after {
-            }
-          }
-        }
-      }
-    }
   }
 
   &__content {
@@ -101,19 +52,62 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 350px));
     gap: 50px;
-    justify-content: space-between;
 
     @include breakpointsMaxW($bp-991) {
-      grid-template-columns: repeat(2, minmax(auto, 350px));
-    }
-    @include breakpointsMaxW($bp-768) {
-      grid-template-columns: minmax(auto, 350px);
+      display: none;
     }
   }
 
-  &__list {
-    display: grid;
-    gap: 50px;
+  &__inner-mobile {
+    display: none;
+
+    @include breakpointsMaxW($bp-991) {
+      display: block;
+      color: var(--color-accent);
+
+      .activity-box {
+        background-color: var(--color-white);
+        border-radius: 20px;
+        color: var(--color-accent);
+
+        &__top {
+          padding: 27px 30px;
+          width: 100%;
+          text-align-last: left;
+          color: var(--color-accent);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @include breakpointsMaxW($bp-768) {
+            padding: 14px 23px;
+          }
+        }
+
+        &__link {
+          text-decoration: underline;
+        }
+
+        &__content {
+          padding-left: 20px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+          @include breakpointsMaxW($bp-768) {
+            margin-bottom: 10px;
+          }
+        }
+
+        &__item {
+          padding-left: 30px;
+          color: var(--color-dark);
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
   }
 
   &__bottom {
@@ -125,11 +119,16 @@
 }
 
 .activity-box {
+  margin-bottom: 50px;
+
   &__list {
     margin-bottom: 7px;
     max-height: 190px;
     overflow: hidden;
-    transition: 350ms ease;
+
+    &.active {
+      max-height: 100%;
+    }
   }
 
   &__title {
@@ -138,6 +137,10 @@
     line-height: 1.1;
     color: var(--color-accent);
     margin-bottom: 20px;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   &__item {

@@ -3,26 +3,25 @@
 
   &.active {
     .accordion__control {
-      &::after {
-        transform: translateY(-50%) rotate(180deg);
+      .accordion__btn {
+        transform: rotate(180deg);
       }
     }
   }
 
   &__control {
     transition: 150ms ease;
-    position: relative;
+  }
 
-    &::after {
-      @include elDef();
-      width: 25px;
-      height: 25px;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      @include maskImage(url('../images/icons/chevron.svg'), contain);
-      background-color: var(--color-dark);
-      transition: 250ms ease;
+  &__btn {
+    transition: 200ms ease;
+    @include breakpointsMaxW($bp-768) {
+      width: 15px;
+      height: 15px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

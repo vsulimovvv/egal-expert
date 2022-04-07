@@ -89,23 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // (function showMore() {
-  //   const btn = document.querySelector('.activity-box__show-more');
-  //   const content = document.querySelector('.activity-box__list');
-  //   if (content) {
-  //     btn.addEventListener('click', () => {
-  //       content.classList.toggle('active');
 
-  //       if (content.classList.contains('active')) {
-  //         content.style.maxHeight = content.scrollHeight + 'px';
-  //         btn.textContent = 'Свернуть';
-  //       } else {
-  //         content.style.maxHeight = null;
-  //         btn.textContent = 'Развернуть';
-  //       }
-  //     });
-  //   }
-  // })();
   // * ===== Custom select
   (function customSelect() {
     const selects = document.querySelectorAll('.select');
@@ -208,26 +192,30 @@ window.addEventListener('DOMContentLoaded', () => {
   })();
 
   (function showMore() {
-    const content = document.querySelectorAll('.activity-box');
-    const btn = document.querySelectorAll('.activity-box__show-more');
-    const list = document.querySelector('.activity-box__list');
-    if (content) {
-      btn.forEach((el) => {
-        el.addEventListener('click', () => {
-          list.classList.toggle('active');
+    const activityBox = document.querySelectorAll('.activity-box');
 
-          if (list.classList.contains('active')) {
-            list.style.maxHeight = list.scrollHeight + 'px';
-            btn.textContent = 'Свернуть';
-          } else {
-            list.style.maxHeight = null;
-            btn.textContent = 'Развернуть';
+    activityBox.forEach((box) => {
+      if (box) {
+        box.addEventListener('click', (e) => {
+          if (e.target.classList.contains('activity-box__show-more')) {
+            box.querySelector('.activity-box__list').classList.toggle('active');
+          }
+
+          if (
+            box
+              .querySelector('.activity-box__list')
+              .classList.contains('active')
+          ) {
+            box.querySelector('.activity-box__show-more').textContent = 'Скрыть';
+          } else{
+            box.querySelector('.activity-box__show-more').textContent = 'Показать все';
           }
         });
-      });
-    }
+      }
+    });
   })();
 
+  // * Toggle Tabs
   function someTabs(headerSelector, tabSelector, contentSelector, activeClass) {
     const header = document.querySelectorAll(headerSelector);
     const tab = document.querySelectorAll(tabSelector);
