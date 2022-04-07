@@ -58,14 +58,18 @@
     }
   }
 
-  &__inner-mobile {
+  &__mobile {
     display: none;
 
     @include breakpointsMaxW($bp-991) {
       display: block;
       color: var(--color-accent);
 
-      .activity-box {
+      &:not(:last-child){
+        margin-bottom: 30px;
+      }
+
+      .activity-accordion {
         background-color: var(--color-white);
         border-radius: 20px;
         color: var(--color-accent);
@@ -99,9 +103,22 @@
           }
         }
 
+        &__list {
+          padding-bottom: 20px;
+        }
+
         &__item {
           padding-left: 30px;
           color: var(--color-dark);
+          padding-left: 24px;
+          position: relative;
+
+          &::after {
+            @include elDef();
+            @include circle();
+            left: 6px;
+          }
+
           &:not(:last-child) {
             margin-bottom: 10px;
           }
@@ -125,6 +142,10 @@
     margin-bottom: 7px;
     max-height: 190px;
     overflow: hidden;
+
+    @include breakpointsMaxW($bp-991) {
+      max-height: 100%;
+    }
 
     &.active {
       max-height: 100%;
