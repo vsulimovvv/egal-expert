@@ -3,16 +3,28 @@
   @include adaptive-value('padding-bottom', 150, 50, 1);
 
   &__title {
-    margin-bottom: 35px;
+    margin-bottom: 50px;
     text-align: center;
+  }
+
+  &__amount {
+    margin-bottom: 50px;
   }
 
   &__slides {
     margin-bottom: 40px;
   }
-
+  &__slider {
+    margin-bottom: 30px;
+  }
   &__slide {
     max-width: 872px;
+  }
+
+  &__form {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -21,16 +33,22 @@
   max-width: 872px;
   width: 100%;
   min-height: 305px;
-  display: flex;
-  align-items: flex-start;
+
   background-color: var(--color-white);
   padding: 50px;
   border-radius: 20px;
   position: relative;
 
-  @include breakpointsMaxW($bp-768) {
-    flex-direction: column;
+  &__top {
+    width: 100%;
+    display: flex;
     align-items: flex-start;
+    margin-bottom: 20px;
+
+    @include breakpointsMaxW($bp-768) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__img {
@@ -54,7 +72,7 @@
     align-items: flex-start;
   }
   &__text {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     color: var(--color-black);
     @include breakpointsMaxW($bp-768) {
       order: -1;
@@ -106,5 +124,79 @@
         }
       }
     }
+  }
+
+  &__bottom {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__answer-btn {
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 500;
+    color: #48637c;
+  }
+
+  &__date {
+    font-size: 14px;
+    color: #919191;
+  }
+}
+
+.form-reviews {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__group {
+    width: 100%;
+    @include adaptive-value('margin-bottom', 40, 20, 1);
+  }
+
+  &__textarea {
+    display: block;
+    width: 100%;
+    height: 130px;
+    font-size: 17px;
+    box-shadow: 0px 30px 88px 0px rgba(17, 17, 17, 0.15);
+    border-radius: 10px;
+    background-color: var(--color-white);
+    @include adaptive-value('padding', 30, 20, 1);
+    color: var(--color-dark);
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: var(--color-black);
+      // color: #8b8b8b;
+    }
+  }
+}
+
+.amount-reviews {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+
+  &__name {
+  }
+
+  &__reviews {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__positive {
+    color: var(--color-green-dark);
+  }
+
+  &__negative {
+    color: #7d7d7d;
   }
 }
