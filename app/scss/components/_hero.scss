@@ -64,10 +64,15 @@
     @include adaptive-value('font-size', 20, 12, 1);
   }
 
+  &__text {
+    @include adaptive-value('font-size', 25, 18, 1);
+    color: var(--color-dark);
+  }
+
   &__consultation {
     position: absolute;
     left: 0;
-    bottom: -140px;
+    bottom: -160px;
 
     @include breakpointsMaxW($bp-991) {
       display: none;
@@ -79,8 +84,8 @@
     width: 100%;
     border-radius: 30px;
     background-color: var(--color-white);
-    border: 20px solid var(--color-accent);
-    padding: 35px 40px;
+    border: 15px solid var(--color-accent);
+    padding: 20px;
 
     &__title {
       text-align: center;
@@ -94,12 +99,12 @@
       gap: 10px;
 
       &__group {
-        height: 50px;
+        height: 40px;
         margin-bottom: 0;
 
         &--textarea {
           grid-column: 1/-1;
-          height: 120px;
+          height: 100px;
         }
       }
 
@@ -129,6 +134,9 @@
   }
   &--main {
     .hero {
+      &__title {
+        margin-bottom: 30px;
+      }
       &__wrapper {
         min-height: 735px;
         @include breakpointsMaxW($bp-991) {
