@@ -68,7 +68,7 @@
     }
   }
 
-  &__title {
+  &__result {
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;
@@ -76,12 +76,15 @@
     margin-right: 20px;
   }
 
-  h4,
-  h5 {
-    font-size: 15px;
+  &__title,
+  &__subtitle {
+    margin-bottom: 5px;
+    font-size: 17px;
     line-height: 1.2;
     font-weight: 400;
-    display: inline;
+  }
+  &__subtitle {
+    margin-bottom: 10px;
   }
 
   &__link {
